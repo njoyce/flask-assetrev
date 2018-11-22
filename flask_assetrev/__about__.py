@@ -15,7 +15,8 @@ maintainer_email = "nick.joyce@realkinetic.com"
 
 description = """
 Flask-AssetRev is a Flask extension which adds support for mapping pre-built,
-content hashed static assets from the source form to the hashed version at runtime.
+content hashed static assets from the source form to the hashed version at
+runtime.
 """.strip()
 
 url = "https://github.com/njoyce/flask-assetrev"

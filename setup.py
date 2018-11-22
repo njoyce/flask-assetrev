@@ -19,7 +19,7 @@ def get_requirements(filename):
     reqs = parse_requirements(filename, session=session)
 
     return [str(r.req) for r in reqs]
-    
+
 
 def get_meta():
     mod_locals = {}

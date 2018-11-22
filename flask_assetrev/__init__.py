@@ -184,4 +184,5 @@ def asset_url(asset_file):
 
     return asset_rev.get_asset_url(asset_file)
 
+
 asset_url.missing = AssetMissingError
