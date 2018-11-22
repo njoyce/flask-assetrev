@@ -23,12 +23,12 @@ def get_requirements(filename):
 
 def get_meta():
     mod_locals = {}
+    file_name = "flask_assetrev/__about__.py"
 
-    execfile(
-        "flask_assetrev/__about__.py",
-        mod_locals,
-        mod_locals,
-    )
+    with open(file_name) as fp:
+        mod = compile(fp.read(), file_name, "exec")
+
+        exec(mod, mod_locals, mod_locals)
 
     return dict(
         (k, v) for k, v in mod_locals.items() if k in mod_locals["__all__"]

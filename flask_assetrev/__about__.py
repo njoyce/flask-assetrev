@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 version_info = (1, 0, 1)
-version = ".".join(map(bytes, version_info))
+version = ".".join(map(str, version_info))
 
 maintainer = "Nick Joyce"
 maintainer_email = "nick.joyce@realkinetic.com"
