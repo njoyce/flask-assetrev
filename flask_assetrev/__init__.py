@@ -2,10 +2,10 @@ import os.path
 
 from flask import json, url_for, current_app
 
-from . import _pkg_meta
+from . import __about__
 
-__version__ = _pkg_meta.version
-__version_info__ = _pkg_meta.version_info
+__version__ = __about__.version
+__version_info__ = __about__.version_info
 
 
 __all__ = [

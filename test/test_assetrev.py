@@ -91,7 +91,7 @@ class AssetRevTestCase(unittest.TestCase):
         })
 
         with app.test_request_context():
-            from flask.ext import assetrev
+            import flask_assetrev as assetrev
 
             self.assertEqual(
                 assetrev.asset_url('app.js'),
