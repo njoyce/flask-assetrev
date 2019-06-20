@@ -143,10 +143,12 @@ class AssetRev(object):
         if self.base_path:
             asset_file = os.path.join(self.base_path, asset_file)
 
+        asset_file = asset_file.lstrip('/')
+
         if self.base_url:
             return '/'.join([
                 self.base_url.rstrip('/'),
-                asset_file.lstrip('/'),
+                asset_file,
             ])
 
         return url_for(

@@ -130,3 +130,19 @@ class AssetRevTestCase(unittest.TestCase):
                 assetrev.asset_url('app.js'),
                 '//cdn.myapp.com/foobar/app.deadb33f.js'
             )
+
+    def test_trailing_slash_path(self):
+        """
+        Handle trailing slashes in ASSETREV_BASE_PATH
+        """
+        app = make_app(config={
+            'ASSETREV_BASE_PATH': '/foobar',
+        })
+
+        with app.test_request_context():
+            import flask_assetrev as assetrev
+
+            self.assertEqual(
+                assetrev.asset_url('app.js'),
+                'http://localhost/static/foobar/app.deadb33f.js'
+            )

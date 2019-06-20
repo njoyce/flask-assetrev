@@ -7,7 +7,7 @@ __all__ = [
     "version",
 ]
 
-version_info = (1, 0, 3)
+version_info = (1, 0, 4)
 version = ".".join(map(str, version_info))
 
 maintainer = "Nick Joyce"
