@@ -144,7 +144,10 @@ class AssetRev(object):
             asset_file = os.path.join(self.base_path, asset_file)
 
         if self.base_url:
-            return self.base_url + asset_file
+            return '/'.join([
+                self.base_url.rstrip('/'),
+                asset_file.lstrip('/'),
+            ])
 
         return url_for(
             'static',

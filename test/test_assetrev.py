@@ -112,3 +112,21 @@ class AssetRevTestCase(unittest.TestCase):
                 asset_url('missing.js')
 
             self.assertEqual(ctx.exception.asset_file, 'missing.js')
+
+    # https://github.com/njoyce/flask-assetrev/issues/1
+    def test_trailing_slash(self):
+        """
+        Handle trailing slashes in config
+        """
+        app = make_app(config={
+            'ASSETREV_BASE_URL': '//cdn.myapp.com/',
+            'ASSETREV_BASE_PATH': '/foobar',
+        })
+
+        with app.test_request_context():
+            import flask_assetrev as assetrev
+
+            self.assertEqual(
+                assetrev.asset_url('app.js'),
+                '//cdn.myapp.com/foobar/app.deadb33f.js'
+            )
